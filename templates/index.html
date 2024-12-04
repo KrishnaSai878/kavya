@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %}Students Performance Page{% endblock %}
+
+{% block content %}
+<h1><center>Top 5 Performing Students</center></h1>
+<div class="container">
+
+    <!-- Student Cards -->
+    <div class="student">
+        <img src="https://tse4.mm.bing.net/th?id=OIP.XoHyaKkfbwKd4aiP2upccgHaLG&pid=Api&P=0" alt="Student 1">
+        <h3>Alice Johnson</h3>
+        <p>Score: 98%</p>
+    </div>
+    <div class="student">
+        <img src="https://tse4.mm.bing.net/th?id=OIP.UhdzYQFsxESnMRZizAf0cwHaLG&pid=Api&P=0" alt="Student 2">
+        <h3>Bob Smith</h3>
+        <p>Score: 95%</p>
+    </div>
+    <div class="student">
+        <img src="https://tse2.mm.bing.net/th?id=OIP.s4MmLMBt0CQQgfneDaWzEQHaLH&pid=Api&P=0" alt="Student 3">
+        <h3>Charlie Brown</h3>
+        <p>Score: 93%</p>
+    </div>
+    <div class="student">
+        <img src="https://tse3.mm.bing.net/th?id=OIP.AKZOk6xrYeYVo92Vu9MWDwHaLH&pid=Api&P=0" alt="Student 4">
+        <h3>David Wilson</h3>
+        <p>Score: 91%</p>
+    </div>
+    <div class="student">
+        <img src="https://tse1.mm.bing.net/th?id=OIP.GCwRGu5TmdGHWr0B9jWOKAHaLH&pid=Api&P=0" alt="Student 5">
+        <h3>Eve Davis</h3>
+        <p>Score: 90%</p>
+    </div>
+</div>
+
+<h1><center>Explore Student Performance Data</center></h1>
+
+<center>
+    {% for data in content %}
+    <div class="card-container" style="width: 18rem;">
+        <div class="card">
+            <h5 class="card-title"><h3>Student Name</h3> {{ data.name }}</h5>
+            <p class="card-text"><h3>Subject</h3>{{ data.subject }}</p>
+            <p class="card-text"><h3>Score</h3>{{ data.score }}</p>
+            <p class="card-text"><h3>Grade</h3>{{ data.grade }}</p>
+        </div>
+    </div>
+    {% endfor %}
+</center>
+
+{% endblock %}

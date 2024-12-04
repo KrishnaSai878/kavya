@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block title %}Add Student Performance Data{% endblock %}
+
+{% block content %}
+<center>
+    <form method="POST" action="/submit">
+        <table>
+            <tr>
+                <td colspan="2" style="text-align: center;">
+                    <h1>Add Student Performance Data</h1>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="studentName">Student Name:</label></td>
+                <td><input type="text" id="studentName" name="studentName" required></td>
+            </tr>
+            <tr>
+                <td><label for="age">Age:</label></td>
+                <td><input type="number" id="age" name="age" required></td>
+            </tr>
+            <tr>
+                <td><label>Gender:</label></td>
+                <td>
+                    <input type="radio" id="male" name="gender" value="male" required>
+                    <label for="male">Male</label>
+                    <input type="radio" id="female" name="gender" value="female" required>
+                    <label for="female">Female</label>
+                    <input type="radio" id="other" name="gender" value="other" required>
+                    <label for="other">Other</label>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="birthdate">Date of Birth:</label></td>
+                <td><input type="date" id="birthdate" name="birthdate" required></td>
+            </tr>
+            <tr>
+                <td><label for="class">Class:</label></td>
+                <td><input type="text" id="class" name="class" required></td>
+            </tr>
+            <tr>
+                <td><label for="subject">Subject:</label></td>
+                <td><input type="text" id="subject" name="subject" required></td>
+            </tr>
+            <tr>
+                <td><label for="examScore">Exam Score (out of 100):</label></td>
+                <td><input type="number" id="examScore" name="examScore" min="0" max="100" required></td>
+            </tr>
+            <tr>
+                <td><label for="remarks">Remarks:</label></td>
+                <td><textarea id="remarks" name="remarks" rows="4" cols="30" placeholder="Enter any additional details..."></textarea></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center;">
+                    <input type="submit" value="Submit">
+                </td>
+            </tr>
+        </table>
+    </form>
+</center>
+{% endblock %}

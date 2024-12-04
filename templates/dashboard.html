@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard Page{% endblock %}
+
+{% block content %}
+
+    <header>
+        <h1>Students Performance Dashboard</h1>
+    </header>
+    <div class="container">
+        <div class="chart-container">
+            <!-- Pie Chart -->
+            <div class="chart-box">
+                <h3>Grade Distribution</h3>
+                <canvas id="gradeChart"></canvas>
+            </div>
+            <!-- Bar Chart -->
+            <div class="chart-box">
+                <h3>Top 5 Performing Students</h3>
+                <canvas id="topStudentsChart"></canvas>
+            </div>
+            <!-- Line Chart -->
+            <div class="chart-box">
+                <h3>Yearly Performance Trends</h3>
+                <canvas id="trendChart"></canvas>
+            </div>
+            <!-- Doughnut Chart -->
+            <div class="chart-box">
+                <h3>Subject-wise Averages</h3>
+                <canvas id="subjectChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Grade Distribution Chart
+        const gradeCtx = document.getElementById('gradeChart').getContext('2d');
+        new Chart(gradeCtx, {
+            type: 'pie',
+            data: {
+                labels: ['A', 'B', 'C', 'D', 'F'],
+                datasets: [{
+                    label: 'Grade Distribution',
+                    data: [30, 40, 20, 5, 5], // Example data
+                    backgroundColor: ['#4CAF50', '#36a2eb', '#ffcd56', '#ff6384', '#9966ff']
+                }]
+            }
+        });
+
+        // Top 5 Performing Students Chart
+        const topStudentsCtx = document.getElementById('topStudentsChart').getContext('2d');
+        new Chart(topStudentsCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Alice', 'Bob', 'Charlie', 'David', 'Eve'], // Example names
+                datasets: [{
+                    label: 'Average Score',
+                    data: [95, 92, 89, 87, 85], // Example scores
+                    backgroundColor: ['#4CAF50', '#36a2eb', '#ffcd56', '#ff6384', '#9966ff']
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Yearly Performance Trends Chart
+        const trendCtx = document.getElementById('trendChart').getContext('2d');
+        new Chart(trendCtx, {
+            type: 'line',
+            data: {
+                labels: ['2019', '2020', '2021', '2022', '2023'], // Example years
+                datasets: [{
+                    label: 'Average Score',
+                    data: [78, 80, 82, 85, 88], // Example yearly averages
+                    borderColor: '#4CAF50',
+                    fill: false
+                }]
+            },
+            options: {
+                responsive: true
+            }
+        });
+
+        // Subject-wise Averages Chart
+        const subjectCtx = document.getElementById('subjectChart').getContext('2d');
+        new Chart(subjectCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Math', 'Science', 'English', 'History', 'Art'], // Example subjects
+                datasets: [{
+                    label: 'Average Scores',
+                    data: [88, 85, 90, 80, 75], // Example averages
+                    backgroundColor: ['#4CAF50', '#36a2eb', '#ffcd56', '#ff6384', '#9966ff']
+                }]
+            }
+        });
+    </script>
+
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}Help Page{% endblock %}
+{% block content %}
+<div class="main-content">
+    <h1>Frequently Asked Questions (FAQs)</h1>
+    <p>If you have any questions about the Students Performance Dashboard, take a look at the FAQs below.</p>
+
+    <div class="faq-section">
+        <button class="faq-button" onclick="toggleFAQ(1)">What is the Students Performance Dashboard?</button>
+        <div id="faq1" class="faq-content">
+            <p>The Students Performance Dashboard is a platform that provides insights into students' academic achievements, including scores, grades, and performance trends over time.</p>
+        </div>
+
+        <button class="faq-button" onclick="toggleFAQ(2)">How is the performance data collected?</button>
+        <div id="faq2" class="faq-content">
+            <p>The data is collected from school records, exam results, and other academic sources to ensure accurate and up-to-date information.</p>
+        </div>
+
+        <button class="faq-button" onclick="toggleFAQ(3)">Can I view performance trends over time?</button>
+        <div id="faq3" class="faq-content">
+            <p>Yes, the platform allows you to view and analyze performance trends for students or specific subjects over a period of time.</p>
+        </div>
+
+        <button class="faq-button" onclick="toggleFAQ(4)">How often is the data updated?</button>
+        <div id="faq4" class="faq-content">
+            <p>The data is updated at the end of every academic term or after major examinations to provide the latest insights.</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    function toggleFAQ(faqNumber) {
+        var content = document.getElementById('faq' + faqNumber);
+        if (content.style.display === "block") {
+            content.style.display = "none";
+        } else {
+            content.style.display = "block";
+        }
+    }
+</script>
+{% endblock %}
